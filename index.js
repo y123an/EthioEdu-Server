@@ -13,7 +13,7 @@ const fs = require("fs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://ethio-edu.netlify.app",
     methods: ["POST", "GET"],
     credentials: true,
   })
@@ -221,7 +221,7 @@ app.post("/login", (req, res) => {
 
           res.cookie("token", token);
 
-          return res.json({ status: "OK", role: user.role });
+          return res.json({ status: "OK", role: user.role, name: user.name });
         } else {
           return res.json("password incorrect");
         }
